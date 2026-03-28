@@ -1,0 +1,379 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0d8f0;
+}
+
+/* ===== Starfield Canvas ===== */
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ===== Title Overlay ===== */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInOverlay 3s ease-out 1s forwards;
+}
+
+#overlay.dismissed {
+  animation: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease-out;
+}
+
+#overlay .click-hint {
+  margin-top: 2.5rem;
+  font-size: clamp(0.65rem, 1vw, 0.85rem);
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(180, 170, 210, 0.35);
+  animation: pulseHint 3s ease-in-out infinite;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+  color: transparent;
+  background: linear-gradient(
+    135deg,
+    #b8a9e8 0%,
+    #e0d0ff 25%,
+    #ffffff 50%,
+    #a8d8ff 75%,
+    #c8b0f0 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerTitle 8s ease-in-out infinite;
+  text-shadow: 0 0 60px rgba(160, 140, 220, 0.3);
+  padding: 0 1rem;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: rgba(180, 170, 210, 0.6);
+}
+
+/* ===== Realms Container ===== */
+#realms-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.5s ease-in 0.3s;
+}
+
+#realms-container.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== Realm Icon ===== */
+.realm-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: clamp(60px, 8vw, 100px);
+  height: clamp(60px, 8vw, 100px);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  outline: none;
+  transition: transform 0.3s ease;
+}
+
+.realm-icon:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+/* Large variant — twice the size */
+.realm-icon--large {
+  width: clamp(120px, 16vw, 200px);
+  height: clamp(120px, 16vw, 200px);
+}
+
+.realm-icon--large:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.realm-icon--large .realm-icon-label {
+  font-size: clamp(0.75rem, 1.3vw, 1.05rem);
+  letter-spacing: 0.2em;
+}
+
+.realm-icon img {
+  width: 100%;
+  height: auto;
+  filter:
+    drop-shadow(0 0 8px var(--glow-color))
+    drop-shadow(0 0 20px var(--glow-color));
+  animation: iconPulse 4s ease-in-out infinite;
+}
+
+.realm-icon-label {
+  white-space: nowrap;
+  font-size: clamp(0.6rem, 1vw, 0.85rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(220, 215, 240, 0.8);
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+/* Ambient variant — represents the background itself */
+.realm-icon--ambient {
+  width: clamp(70px, 9vw, 110px);
+  height: clamp(70px, 9vw, 110px);
+  opacity: 0.55;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.realm-icon--ambient:hover {
+  opacity: 0.9;
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.realm-icon--ambient img {
+  filter:
+    drop-shadow(0 0 10px var(--glow-color))
+    drop-shadow(0 0 28px var(--glow-color));
+  animation: ambientBreathe 6s ease-in-out infinite;
+}
+
+.realm-icon--ambient .realm-icon-label {
+  font-size: clamp(0.55rem, 0.9vw, 0.8rem);
+  color: rgba(190, 180, 220, 0.6);
+  letter-spacing: 0.2em;
+}
+
+.realm-icon-subtitle {
+  white-space: nowrap;
+  font-size: clamp(0.45rem, 0.7vw, 0.65rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  color: rgba(160, 150, 200, 0.4);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  margin-top: -0.2rem;
+}
+
+@keyframes ambientBreathe {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 8px var(--glow-color))
+      drop-shadow(0 0 20px var(--glow-color));
+    opacity: 0.7;
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 14px var(--glow-color))
+      drop-shadow(0 0 40px var(--glow-color));
+    opacity: 1;
+  }
+}
+
+/* ===== Side Tray ===== */
+#realm-tray {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#realm-tray.open {
+  pointer-events: auto;
+}
+
+/* Dim backdrop when open */
+#realm-tray::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+#realm-tray.open::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tray-panel {
+  position: relative;
+  width: min(460px, 85vw);
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 24, 0.95) 0%,
+    rgba(12, 10, 30, 0.97) 100%
+  );
+  border-left: 1px solid rgba(120, 100, 180, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow-y: auto;
+  padding: 2.5rem 2rem 3rem;
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 100, 180, 0.3) transparent;
+}
+
+#realm-tray.open .tray-panel {
+  transform: translateX(0);
+}
+
+.tray-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.tray-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.tray-panel::-webkit-scrollbar-thumb {
+  background: rgba(120, 100, 180, 0.3);
+  border-radius: 3px;
+}
+
+/* Tray header */
+.tray-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  border: 1px solid rgba(180, 170, 210, 0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: rgba(200, 190, 230, 0.7);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.tray-close:hover {
+  border-color: rgba(200, 190, 230, 0.5);
+  color: #fff;
+}
+
+.tray-name {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #e8e0ff;
+  margin-bottom: 0.35rem;
+  padding-right: 3rem;
+}
+
+.tray-arcana {
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(160, 150, 200, 0.6);
+  margin-bottom: 2rem;
+}
+
+.tray-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(120, 100, 180, 0.3), transparent);
+  margin-bottom: 2rem;
+}
+
+.tray-body p {
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  line-height: 1.8;
+  color: rgba(210, 205, 230, 0.85);
+  margin-bottom: 1.4rem;
+  text-align: left;
+}
+
+.tray-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInOverlay {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmerTitle {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.7; }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 6px var(--glow-color))
+      drop-shadow(0 0 16px var(--glow-color));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 12px var(--glow-color))
+      drop-shadow(0 0 30px var(--glow-color));
+  }
+}

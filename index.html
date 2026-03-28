@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tales of Echo — Planar Map</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <div id="overlay">
+    <h1 class="title">Tales of Echo</h1>
+    <p class="subtitle">Navigate the Realms</p>
+    <p class="click-hint">Click anywhere to enter</p>
+  </div>
+
+  <div id="realms-container"></div>
+
+  <!-- Side tray for realm details -->
+  <div id="realm-tray">
+    <div class="tray-panel">
+      <button id="tray-close" class="tray-close" aria-label="Close">&times;</button>
+      <h2 id="tray-name" class="tray-name"></h2>
+      <p id="tray-arcana" class="tray-arcana"></p>
+      <hr class="tray-divider">
+      <div id="tray-body" class="tray-body"></div>
+    </div>
+  </div>
+
+  <script src="js/starfield.js"></script>
+  <script src="js/realms-data.js"></script>
+  <script src="js/realms.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

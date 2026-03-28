@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <!-- Outer glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Centre sun glow -->
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#fffbe6"/>
+      <stop offset="40%" stop-color="#f0d860"/>
+      <stop offset="100%" stop-color="#8a7a20" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#1a5c2a" stroke-width="6" filter="url(#glow)"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#0d3318" stroke-width="2"/>
+
+  <!-- Decorative dots on the ring -->
+  <g fill="#2a8040" opacity="0.8">
+    <circle cx="100" cy="14" r="3"/>
+    <circle cx="100" cy="186" r="3"/>
+    <circle cx="14"  cy="100" r="3"/>
+    <circle cx="186" cy="100" r="3"/>
+    <circle cx="39"  cy="39"  r="2.5"/>
+    <circle cx="161" cy="39"  r="2.5"/>
+    <circle cx="39"  cy="161" r="2.5"/>
+    <circle cx="161" cy="161" r="2.5"/>
+  </g>
+
+  <!-- Celtic triquetra knot -->
+  <g fill="none" stroke="#1a5c2a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <!-- Three interlocking vesica shapes -->
+    <path d="M100 38 C130 65, 140 95, 100 120 C60 95, 70 65, 100 38Z"/>
+    <path d="M62 135 C58 100, 72 72, 100 62 C95 98, 80 120, 62 135Z"/>
+    <path d="M138 135 C142 100, 128 72, 100 62 C105 98, 120 120, 138 135Z"/>
+
+    <!-- Outer arcs connecting the points -->
+    <path d="M100 38 Q145 30, 138 135" fill="none"/>
+    <path d="M138 135 Q100 170, 62 135" fill="none"/>
+    <path d="M62 135 Q55 30, 100 38" fill="none"/>
+  </g>
+
+  <!-- Inner detail lines (darker) -->
+  <g fill="none" stroke="#0d3318" stroke-width="2">
+    <path d="M100 50 C122 70, 128 90, 100 110 C72 90, 78 70, 100 50Z"/>
+    <path d="M70 130 C70 105, 78 82, 100 72 C96 95, 86 112, 70 130Z"/>
+    <path d="M130 130 C130 105, 122 82, 100 72 C104 95, 114 112, 130 130Z"/>
+  </g>
+
+  <!-- Centre sun -->
+  <circle cx="100" cy="95" r="18" fill="url(#sunGlow)"/>
+  <circle cx="100" cy="95" r="10" fill="#fffef0"/>
+
+  <!-- Sun rays -->
+  <g stroke="#c0a820" stroke-width="1.5" opacity="0.7">
+    <line x1="100" y1="74"  x2="100" y2="68"/>
+    <line x1="100" y1="116" x2="100" y2="122"/>
+    <line x1="79"  y1="95"  x2="73"  y2="95"/>
+    <line x1="121" y1="95"  x2="127" y2="95"/>
+    <line x1="86"  y1="81"  x2="82"  y2="77"/>
+    <line x1="114" y1="81"  x2="118" y2="77"/>
+    <line x1="86"  y1="109" x2="82"  y2="113"/>
+    <line x1="114" y1="109" x2="118" y2="113"/>
+  </g>
+
+  <!-- Small star accents around the ring -->
+  <g fill="#3aa855" opacity="0.6">
+    <polygon points="30,70 32,66 34,70 32,74" />
+    <polygon points="170,70 172,66 174,70 172,74" />
+    <polygon points="55,155 57,151 59,155 57,159" />
+    <polygon points="145,155 147,151 149,155 147,159" />
+  </g>
+</svg>
