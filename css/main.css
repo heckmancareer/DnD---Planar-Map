@@ -571,6 +571,27 @@ html, body {
   display: block;
 }
 
+.nav-btn--disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.nav-btn--disabled:hover {
+  color: rgba(180, 165, 220, 0.55);
+  border-color: transparent;
+  background: none;
+}
+
+.nav-coming-soon {
+  display: block;
+  font-size: clamp(0.48rem, 0.7vw, 0.58rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(160, 150, 200, 0.5);
+  font-style: italic;
+}
+
 /* ===== Side Tray ===== */
 #realm-tray {
   position: fixed;
