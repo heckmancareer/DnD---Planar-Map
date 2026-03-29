@@ -3,21 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tales of Echo — Planar Map</title>
+  <title>Tales of Echo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <canvas id="starfield"></canvas>
 
   <div id="overlay">
-    <h1 class="title">Tales of Echo</h1>
-    <p class="subtitle">Navigate the Realms</p>
-    <p class="click-hint">Click anywhere to enter</p>
+    <div class="overlay-content">
+      <h1 class="overlay-title">Tales of Echo</h1>
+      <p class="overlay-subtitle">Navigate the Realms</p>
+      <p class="overlay-hint">Click anywhere to enter</p>
+    </div>
   </div>
 
-  <div id="realms-container"></div>
+  <div id="sections-host">
+    <section id="section-realm-map" class="site-section" data-section="realm-map">
+      <div id="realms-container"></div>
+    </section>
+  </div>
 
-  <!-- Side tray for realm details -->
+  <!-- Tray lives at body level (outside sections-host) to avoid stacking context issues during opacity transitions -->
   <div id="realm-tray">
     <div class="tray-panel">
       <button id="tray-close" class="tray-close" aria-label="Close">&times;</button>
@@ -28,9 +37,21 @@
     </div>
   </div>
 
+  <nav id="site-nav" aria-label="Site navigation">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <button class="nav-btn" data-target="realm-map" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">✦</span>
+          <span class="nav-label">Realm Map</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
   <script src="js/starfield.js"></script>
   <script src="js/realms-data.js"></script>
   <script src="js/realms.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

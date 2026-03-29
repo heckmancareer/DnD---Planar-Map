@@ -3,9 +3,11 @@
  *
  * Flow:
  *   1. Boot starfield
- *   2. Show title overlay (auto-fades in via CSS)
- *   3. First click anywhere dismisses the title
- *   4. Realm icons fade in
+ *   2. Init nav (registers click handlers)
+ *   3. Init realms (creates icons, hidden)
+ *   4. Title overlay auto-fades in via CSS
+ *   5. First click → overlay fades out → nav slides up → realm-map section
+ *      fades in → icons become interactive
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!canvas) { console.error('Starfield canvas not found'); return; }
   Starfield.init(canvas);
 
-  /* ---- Realms setup (icons created but hidden) ---- */
+  /* ---- Nav + Realms setup ---- */
+  Nav.init();
   Realms.init();
 
   /* ---- Title dismiss ---- */
@@ -25,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (overlay.classList.contains('dismissed')) return;
     overlay.classList.add('dismissed');
 
-    // After the title fades out, show the realm icons
-    setTimeout(() => {
-      Realms.showIcons();
-    }, 600);
+    Nav.showNav();                                                    // t=0:    nav slides up from bottom
+
+    setTimeout(() => Nav.activateInitialSection('realm-map'), 300);  // t=300ms: section begins fading in
+    setTimeout(() => Realms.showIcons(), 700);                        // t=700ms: icons become interactive
   });
 
 });
