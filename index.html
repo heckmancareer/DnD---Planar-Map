@@ -24,6 +24,10 @@
     <section id="section-realm-map" class="site-section" data-section="realm-map">
       <div id="realms-container"></div>
     </section>
+
+    <section id="section-campaigns" class="site-section" data-section="campaigns">
+      <div id="campaigns-container" class="campaigns-container"></div>
+    </section>
   </div>
 
   <!-- Tray lives at body level (outside sections-host) to avoid stacking context issues during opacity transitions -->
@@ -45,12 +49,20 @@
           <span class="nav-label">Realm Map</span>
         </button>
       </li>
+      <li class="nav-item">
+        <button class="nav-btn" data-target="campaigns" aria-current="false">
+          <span class="nav-icon" aria-hidden="true">⚔</span>
+          <span class="nav-label">Campaigns</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
   <script src="js/starfield.js"></script>
   <script src="js/realms-data.js"></script>
   <script src="js/realms.js"></script>
+  <script src="js/campaigns-data.js"></script>
+  <script src="js/campaigns.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/main.js"></script>
 </body>

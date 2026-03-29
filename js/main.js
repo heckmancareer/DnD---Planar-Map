@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!canvas) { console.error('Starfield canvas not found'); return; }
   Starfield.init(canvas);
 
-  /* ---- Nav + Realms setup ---- */
+  /* ---- Module setup ---- */
   Nav.init();
   Realms.init();
+  Campaigns.init();
 
   /* ---- Title dismiss ---- */
   const overlay = document.getElementById('overlay');

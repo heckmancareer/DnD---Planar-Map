@@ -239,6 +239,92 @@ html, body {
   }
 }
 
+/* ===== Campaign Cards ===== */
+.campaigns-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.campaign-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: clamp(260px, 28vw, 340px);
+  padding: 2.5rem 2rem 2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 10, 28, 0.75) 0%,
+    rgba(8, 6, 22, 0.88) 100%
+  );
+  border: 1px solid rgba(140, 110, 200, 0.15);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: pointer;
+  outline: none;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  font-family: inherit;
+  color: inherit;
+}
+
+.campaign-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(140, 110, 200, 0.3);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px color-mix(in srgb, var(--glow-color) 20%, transparent);
+}
+
+.campaign-card-icon {
+  width: clamp(80px, 10vw, 120px);
+  height: clamp(80px, 10vw, 120px);
+}
+
+.campaign-card-icon img {
+  width: 100%;
+  height: auto;
+  filter:
+    drop-shadow(0 0 8px var(--glow-color))
+    drop-shadow(0 0 20px var(--glow-color));
+  animation: iconPulse 4s ease-in-out infinite;
+}
+
+.campaign-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.campaign-card-title {
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e8e0ff;
+}
+
+.campaign-card-subtitle {
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: rgba(180, 170, 210, 0.6);
+  max-width: 26ch;
+}
+
 /* ===== Bottom Navigation ===== */
 #site-nav {
   position: fixed;
