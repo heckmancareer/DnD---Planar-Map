@@ -8,37 +8,37 @@
       </feMerge>
     </filter>
     <radialGradient id="celCore" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"  stop-color="#ffe8e0"/>
-      <stop offset="40%" stop-color="#e04830"/>
-      <stop offset="100%" stop-color="#601810" stop-opacity="0"/>
+      <stop offset="0%"  stop-color="#e0f0ff"/>
+      <stop offset="40%" stop-color="#4080e0"/>
+      <stop offset="100%" stop-color="#102060" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"  stop-color="#d04030"/>
-      <stop offset="100%" stop-color="#801808"/>
+      <stop offset="0%"  stop-color="#3070d0"/>
+      <stop offset="100%" stop-color="#102860"/>
     </linearGradient>
   </defs>
 
   <!-- Outer ring -->
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#a03020" stroke-width="5" opacity="0.6" filter="url(#celGlow)"/>
-  <circle cx="100" cy="100" r="82" fill="none" stroke="#602018" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#2060a0" stroke-width="5" opacity="0.6" filter="url(#celGlow)"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#183060" stroke-width="1.5" opacity="0.4"/>
 
   <!-- Shield shape -->
   <g filter="url(#celGlow)">
     <path d="M100 55 L140 75 L140 115 C140 140, 120 155, 100 165
              C80 155, 60 140, 60 115 L60 75 Z"
-          fill="none" stroke="#c04030" stroke-width="4" stroke-linejoin="round"/>
+          fill="none" stroke="#3070c0" stroke-width="4" stroke-linejoin="round"/>
     <!-- Shield inner border -->
     <path d="M100 62 L134 79 L134 113 C134 135, 117 148, 100 157
              C83 148, 66 135, 66 113 L66 79 Z"
-          fill="none" stroke="#802820" stroke-width="1.5" opacity="0.5"/>
+          fill="none" stroke="#204880" stroke-width="1.5" opacity="0.5"/>
     <!-- Shield center line (vertical) -->
-    <line x1="100" y1="62" x2="100" y2="157" stroke="#802820" stroke-width="1" opacity="0.4"/>
+    <line x1="100" y1="62" x2="100" y2="157" stroke="#204880" stroke-width="1" opacity="0.4"/>
     <!-- Shield center line (horizontal) -->
-    <line x1="66" y1="100" x2="134" y2="100" stroke="#802820" stroke-width="1" opacity="0.4"/>
+    <line x1="66" y1="100" x2="134" y2="100" stroke="#204880" stroke-width="1" opacity="0.4"/>
   </g>
 
   <!-- Dragon wings (spread from behind shield) -->
-  <g fill="none" stroke="#c04030" stroke-width="3" stroke-linecap="round" filter="url(#celGlow)">
+  <g fill="none" stroke="#3070c0" stroke-width="3" stroke-linecap="round" filter="url(#celGlow)">
     <!-- Left wing -->
     <path d="M60 85 C40 60, 20 50, 15 42 C25 55, 30 70, 35 72
              C28 58, 22 45, 20 35 C28 50, 38 62, 42 68
@@ -54,17 +54,17 @@
     <path d="M92 55 C88 45, 82 38, 78 30 C85 36, 90 38, 94 40
              L100 32
              L106 40 C110 38, 115 36, 122 30 C118 38, 112 45, 108 55"
-          fill="none" stroke="#d05040" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="#4080d0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     <!-- Dragon eye dots -->
-    <circle cx="93" cy="48" r="2" fill="#f08060"/>
-    <circle cx="107" cy="48" r="2" fill="#f08060"/>
+    <circle cx="93" cy="48" r="2" fill="#60a0f0"/>
+    <circle cx="107" cy="48" r="2" fill="#60a0f0"/>
   </g>
 
-  <!-- Fire glow inside shield -->
+  <!-- Arcane glow inside shield -->
   <circle cx="100" cy="110" r="14" fill="url(#celCore)" opacity="0.4"/>
 
-  <!-- Small ember particles -->
-  <g fill="#f06040" opacity="0.6">
+  <!-- Small particle accents -->
+  <g fill="#4080e0" opacity="0.6">
     <circle cx="35" cy="95" r="1.5"/>
     <circle cx="165" cy="92" r="1.5"/>
     <circle cx="45" cy="140" r="1"/>
@@ -74,7 +74,7 @@
   </g>
 
   <!-- Star accents -->
-  <g fill="#c04030" opacity="0.45">
+  <g fill="#3060b0" opacity="0.45">
     <polygon points="28,110 30,106 32,110 30,114"/>
     <polygon points="170,108 172,104 174,108 172,112"/>
     <polygon points="75,178 77,174 79,178 77,182"/>
@@ -82,7 +82,7 @@
   </g>
 
   <!-- Rotating orbiting ember -->
-  <circle cx="100" cy="18" r="2" fill="#f06040" opacity="0.5">
+  <circle cx="100" cy="18" r="2" fill="#60a0f0" opacity="0.5">
     <animateTransform attributeName="transform" type="rotate"
       from="0 100 100" to="-360 100 100" dur="15s" repeatCount="indefinite"/>
   </circle>

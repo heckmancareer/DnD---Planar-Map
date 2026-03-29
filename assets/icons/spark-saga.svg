@@ -8,22 +8,22 @@
       </feMerge>
     </filter>
     <radialGradient id="sparkCore" cx="50%" cy="45%" r="50%">
-      <stop offset="0%"  stop-color="#fffef0"/>
-      <stop offset="30%" stop-color="#f0c040"/>
-      <stop offset="100%" stop-color="#8a6a10" stop-opacity="0"/>
+      <stop offset="0%"  stop-color="#fff0f0"/>
+      <stop offset="30%" stop-color="#e04030"/>
+      <stop offset="100%" stop-color="#8a1010" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="sparkBook" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"  stop-color="#d4a030"/>
-      <stop offset="100%" stop-color="#6a4e18"/>
+      <stop offset="0%"  stop-color="#d03020"/>
+      <stop offset="100%" stop-color="#6a1818"/>
     </linearGradient>
   </defs>
 
   <!-- Outer arcane circle -->
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#a07820" stroke-width="5" opacity="0.6" filter="url(#sparkGlow)"/>
-  <circle cx="100" cy="100" r="82" fill="none" stroke="#6a5020" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#a02020" stroke-width="5" opacity="0.6" filter="url(#sparkGlow)"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#6a2020" stroke-width="1.5" opacity="0.4"/>
 
   <!-- Rune marks on the circle -->
-  <g fill="none" stroke="#c09030" stroke-width="2" opacity="0.5">
+  <g fill="none" stroke="#c03030" stroke-width="2" opacity="0.5">
     <line x1="100" y1="12" x2="100" y2="22"/>
     <line x1="100" y1="178" x2="100" y2="188"/>
     <line x1="12" y1="100" x2="22" y2="100"/>
@@ -34,21 +34,21 @@
   <g filter="url(#sparkGlow)">
     <!-- Left page -->
     <path d="M100 75 C90 72, 60 70, 50 75 L50 135 C60 130, 90 132, 100 137Z"
-          fill="none" stroke="#c09030" stroke-width="3" stroke-linejoin="round"/>
+          fill="none" stroke="#c03030" stroke-width="3" stroke-linejoin="round"/>
     <!-- Right page -->
     <path d="M100 75 C110 72, 140 70, 150 75 L150 135 C140 130, 110 132, 100 137Z"
-          fill="none" stroke="#c09030" stroke-width="3" stroke-linejoin="round"/>
+          fill="none" stroke="#c03030" stroke-width="3" stroke-linejoin="round"/>
     <!-- Spine -->
-    <line x1="100" y1="75" x2="100" y2="137" stroke="#a07820" stroke-width="2"/>
+    <line x1="100" y1="75" x2="100" y2="137" stroke="#a02020" stroke-width="2"/>
     <!-- Page lines left -->
-    <g stroke="#806020" stroke-width="1" opacity="0.5">
+    <g stroke="#802020" stroke-width="1" opacity="0.5">
       <line x1="62" y1="88" x2="92" y2="86"/>
       <line x1="62" y1="98" x2="92" y2="96"/>
       <line x1="62" y1="108" x2="92" y2="106"/>
       <line x1="62" y1="118" x2="92" y2="117"/>
     </g>
     <!-- Page lines right -->
-    <g stroke="#806020" stroke-width="1" opacity="0.5">
+    <g stroke="#802020" stroke-width="1" opacity="0.5">
       <line x1="108" y1="86" x2="138" y2="88"/>
       <line x1="108" y1="96" x2="138" y2="98"/>
       <line x1="108" y1="106" x2="138" y2="108"/>
@@ -59,13 +59,13 @@
   <!-- Central spark/lightning bolt above the book -->
   <g filter="url(#sparkGlow)">
     <polygon points="100,30 108,55 102,55 112,72 96,58 103,58"
-             fill="#f0c040" stroke="#fffef0" stroke-width="1" opacity="0.95"/>
+             fill="#e04030" stroke="#fff0f0" stroke-width="1" opacity="0.95"/>
     <!-- Spark glow -->
     <circle cx="103" cy="50" r="12" fill="url(#sparkCore)" opacity="0.6"/>
   </g>
 
   <!-- Small spark particles -->
-  <g fill="#f0d060" opacity="0.7">
+  <g fill="#e06060" opacity="0.7">
     <circle cx="72" cy="52" r="1.5"/>
     <circle cx="132" cy="48" r="1.5"/>
     <circle cx="56" cy="68" r="1"/>
@@ -75,7 +75,7 @@
   </g>
 
   <!-- Star accents -->
-  <g fill="#d0a030" opacity="0.5">
+  <g fill="#d03030" opacity="0.5">
     <polygon points="38,50 40,46 42,50 40,54"/>
     <polygon points="162,55 164,51 166,55 164,59"/>
     <polygon points="42,145 44,141 46,145 44,149"/>
@@ -83,11 +83,7 @@
   </g>
 
   <!-- Rotating orbiting dot -->
-  <circle cx="100" cy="100" r="0" fill="#f0d060">
-    <animateTransform attributeName="transform" type="rotate"
-      from="0 100 100" to="360 100 100" dur="12s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="100" cy="18" r="2.5" fill="#f0d060" opacity="0.6">
+  <circle cx="100" cy="18" r="2.5" fill="#e06060" opacity="0.6">
     <animateTransform attributeName="transform" type="rotate"
       from="0 100 100" to="360 100 100" dur="12s" repeatCount="indefinite"/>
   </circle>
