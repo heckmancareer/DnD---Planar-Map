@@ -12,8 +12,8 @@ const CAMPAIGNS = [
     icon: 'assets/icons/spark-saga.svg',
     glowColor: '#e04030',
     description: [
-      'The Spark-Oath Academy stands at the confluence of three ley lines, its towers etched with binding runes that pulse with raw arcane energy. Students are drawn from across the realm, each bearing an innate affinity for the Spark — a volatile force that defies every known school of magic.',
-      'But the Academy conceals a secret older than its founding charter. Beneath the examination halls and library stacks, a forgotten wing has been sealed for three centuries. Something is waking inside, and those students brave enough to investigate will find that the Spark-Oath itself is far more than a graduation ceremony.',
+      'Spark-Oath Academy is one the three High Arcana Academia, prestigous institutions that train the most talented individuals of the High Courts. Everyday students must be prepared for the magical and intellectual challenges of the curriculum.',
+      'But something deeper yet dwells within the Academy walls. Ancient secrets, histories, and powers are destined to collide with the lives of the school\'s protectors, a group of students who find themselves at the center of a conspiracy that threatens what they think they know.',
     ],
   },
   {
@@ -23,8 +23,8 @@ const CAMPAIGNS = [
     icon: 'assets/icons/celstate-saga.svg',
     glowColor: '#4080e0',
     description: [
-      'The kingdom of Celstate has endured a century of uneasy peace with its eastern neighbors, maintained by the legendary Rider Pacts — bonds forged in dragonfire between riders and their bonded wyrms. These partnerships are sacred, requiring years of training and absolute mutual trust.',
-      'When the eastern border collapses under an unprecedented assault, the Riders are the last line of defense. Outnumbered and cut off from the capital, a small flight of newly bonded riders must hold the mountain passes long enough for the kingdom to mobilize — and uncover why the enemy\'s dragons fight without hesitation or fear.',
+      'The past two years have been a grueling challenge in becoming a Rider. The training is intense, the bond with the wyvern is demanding, and the mountain passes are unforgiving. But nothing could have prepared the Riders for what came next.',
+      'The golden armies of the Saintillac march for the city of Cindros. Decimation is guranteed. As the flames climb higher and the smoke thickens, the Riders must find a way to hold the line and protect their home, even if it means making impossible sacrifices.',
     ],
   },
 ];
