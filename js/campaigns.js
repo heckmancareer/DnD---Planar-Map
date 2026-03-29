@@ -150,6 +150,10 @@ const Campaigns = (() => {
 
     container.appendChild(grid);
     container.appendChild(detail);
+
+    // Reset detail state when nav switches away from this section
+    document.getElementById('section-campaigns')
+      .addEventListener('sectionleave', closeDetail);
   }
 
   return { init };

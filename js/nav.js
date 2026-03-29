@@ -38,6 +38,8 @@ const Nav = (() => {
     // Fade out the current section (faster exit)
     if (currentSection) {
       const outgoing = currentSection;
+      // Notify the section it is leaving so modules can reset internal state
+      outgoing.dispatchEvent(new CustomEvent('sectionleave'));
       outgoing.classList.add('section-exiting');
       outgoing.classList.remove('section-active');
       setTimeout(() => outgoing.classList.remove('section-exiting'), 400);
