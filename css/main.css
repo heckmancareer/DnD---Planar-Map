@@ -239,16 +239,28 @@ html, body {
   }
 }
 
-/* ===== Campaign Cards ===== */
+/* ===== Campaigns ===== */
 .campaigns-container {
+  position: absolute;
+  inset: 0;
+}
+
+/* --- Grid view --- */
+.campaigns-grid {
   position: absolute;
   inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: clamp(1.5rem, 3vw, 3rem);
-  padding: 2rem;
+  padding: 2rem 2rem 5rem; /* bottom pad clears nav bar */
   flex-wrap: wrap;
+  transition: opacity 0.4s ease;
+}
+
+.campaigns-grid--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .campaign-card {
@@ -323,6 +335,149 @@ html, body {
   letter-spacing: 0.04em;
   color: rgba(180, 170, 210, 0.6);
   max-width: 26ch;
+}
+
+/* --- Detail view --- */
+.campaigns-detail {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2rem 5rem; /* bottom pad clears nav bar */
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.campaigns-detail--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.campaigns-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 860px;
+}
+
+.campaigns-back {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid rgba(140, 110, 200, 0.25);
+  border-radius: 2rem;
+  padding: 0.4rem 1.1rem;
+  color: rgba(180, 165, 220, 0.65);
+  font-family: inherit;
+  font-size: clamp(0.65rem, 1vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.campaigns-back:hover {
+  color: rgba(210, 195, 245, 0.9);
+  border-color: rgba(160, 130, 220, 0.4);
+  background: rgba(80, 60, 140, 0.12);
+}
+
+.campaigns-detail-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding: 2.5rem 2.5rem 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(12, 10, 28, 0.72) 0%,
+    rgba(8, 6, 22, 0.86) 100%
+  );
+  border: 1px solid rgba(140, 110, 200, 0.15);
+  border-radius: 1rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.campaigns-detail-emblem {
+  flex-shrink: 0;
+  width: clamp(120px, 14vw, 190px);
+  height: clamp(120px, 14vw, 190px);
+}
+
+.campaigns-detail-emblem img {
+  width: 100%;
+  height: auto;
+  filter:
+    drop-shadow(0 0 10px var(--glow-color))
+    drop-shadow(0 0 28px var(--glow-color));
+  animation: iconPulse 4s ease-in-out infinite;
+}
+
+.campaigns-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.campaigns-detail-title {
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e8e0ff;
+}
+
+.campaigns-detail-subtitle {
+  font-size: clamp(0.78rem, 1.1vw, 0.95rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(180, 170, 210, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.campaigns-detail-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(120, 100, 180, 0.3), transparent);
+  margin-bottom: 0.75rem;
+}
+
+.campaigns-detail-description p {
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  line-height: 1.8;
+  color: rgba(210, 205, 230, 0.85);
+  margin-bottom: 1.2rem;
+}
+
+.campaigns-detail-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive: stack vertically on narrow viewports */
+@media (max-width: 620px) {
+  .campaigns-detail-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .campaigns-detail-emblem {
+    width: clamp(100px, 28vw, 140px);
+    height: clamp(100px, 28vw, 140px);
+  }
+
+  .campaigns-detail-divider {
+    background: linear-gradient(90deg, transparent, rgba(120, 100, 180, 0.3), transparent);
+  }
 }
 
 /* ===== Bottom Navigation ===== */
