@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Nav.init();
   Realms.init();
   Campaigns.init();
+  Heroes.init();
 
   /* ---- Title dismiss ---- */
   const overlay = document.getElementById('overlay');

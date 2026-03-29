@@ -28,6 +28,10 @@
     <section id="section-campaigns" class="site-section" data-section="campaigns">
       <div id="campaigns-container" class="campaigns-container"></div>
     </section>
+
+    <section id="section-heroes" class="site-section" data-section="heroes">
+      <div id="heroes-container" class="heroes-container"></div>
+    </section>
   </div>
 
   <!-- Tray lives at body level (outside sections-host) to avoid stacking context issues during opacity transitions -->
@@ -56,6 +60,12 @@
         </button>
       </li>
       <li class="nav-item">
+        <button class="nav-btn" data-target="heroes" aria-current="false">
+          <span class="nav-icon" aria-hidden="true">⚜</span>
+          <span class="nav-label">Hall of Heroes</span>
+        </button>
+      </li>
+      <li class="nav-item">
         <button class="nav-btn nav-btn--disabled" disabled aria-disabled="true">
           <span class="nav-icon" aria-hidden="true">📖</span>
           <span class="nav-label">Lore Library</span>
@@ -70,6 +80,8 @@
   <script src="js/realms.js"></script>
   <script src="js/campaigns-data.js"></script>
   <script src="js/campaigns.js"></script>
+  <script src="js/heroes-data.js"></script>
+  <script src="js/heroes.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/main.js"></script>
 </body>

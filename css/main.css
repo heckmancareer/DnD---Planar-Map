@@ -480,6 +480,250 @@ html, body {
   }
 }
 
+/* ===== Hall of Heroes ===== */
+.heroes-container {
+  position: absolute;
+  inset: 0;
+}
+
+/* --- Grid --- */
+.heroes-grid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding: 2.5rem 2rem 5rem;
+  overflow-y: auto;
+  transition: opacity 0.4s ease;
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 100, 180, 0.3) transparent;
+}
+
+.heroes-grid::-webkit-scrollbar { width: 6px; }
+.heroes-grid::-webkit-scrollbar-track { background: transparent; }
+.heroes-grid::-webkit-scrollbar-thumb { background: rgba(120, 100, 180, 0.3); border-radius: 3px; }
+
+.heroes-grid--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- Hero card --- */
+.hero-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: clamp(170px, 18vw, 220px);
+  background: linear-gradient(
+    180deg,
+    rgba(12, 10, 28, 0.7) 0%,
+    rgba(8, 6, 22, 0.88) 100%
+  );
+  border: 1px solid rgba(140, 110, 200, 0.15);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  color: inherit;
+  text-align: left;
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.32s ease,
+    box-shadow 0.32s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(var(--glow-color), 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 0 22px color-mix(in srgb, var(--glow-color) 18%, transparent);
+}
+
+/* Portrait — fills card top, fixed aspect ratio */
+.hero-card-portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #0a0818;
+  position: relative;
+}
+
+.hero-card-portrait::after {
+  /* Bottom fade so portrait blends into card body */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, rgba(8, 6, 22, 0.88));
+}
+
+.hero-card-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Card body */
+.hero-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem 0.9rem 0.9rem;
+}
+
+.hero-card-name {
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e8e0ff;
+  line-height: 1.2;
+}
+
+.hero-card-meta {
+  font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba(160, 150, 200, 0.65);
+}
+
+/* Campaign tag pill */
+.hero-card-tag {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2rem;
+  font-size: clamp(0.52rem, 0.75vw, 0.62rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--tag-color) 90%, white);
+  background: color-mix(in srgb, var(--tag-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tag-color) 30%, transparent);
+}
+
+/* --- Detail view --- */
+.heroes-detail {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2rem 5rem;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 100, 180, 0.3) transparent;
+}
+
+.heroes-detail::-webkit-scrollbar { width: 6px; }
+.heroes-detail::-webkit-scrollbar-track { background: transparent; }
+.heroes-detail::-webkit-scrollbar-thumb { background: rgba(120, 100, 180, 0.3); border-radius: 3px; }
+
+.heroes-detail--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.heroes-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 860px;
+}
+
+.heroes-detail-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(12, 10, 28, 0.72) 0%,
+    rgba(8, 6, 22, 0.86) 100%
+  );
+  border: 1px solid rgba(140, 110, 200, 0.15);
+  border-radius: 1rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Portrait column — tall and narrow */
+.heroes-detail-portrait {
+  flex-shrink: 0;
+  width: clamp(130px, 14vw, 190px);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: 1px solid rgba(140, 110, 200, 0.2);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 0 20px color-mix(in srgb, var(--glow-color) 15%, transparent);
+}
+
+.heroes-detail-portrait img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.heroes-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.heroes-detail-name {
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e8e0ff;
+}
+
+.heroes-detail-meta {
+  font-size: clamp(0.78rem, 1.1vw, 0.95rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(180, 170, 210, 0.6);
+}
+
+.heroes-detail-tag {
+  margin-bottom: 0.4rem;
+}
+
+/* Responsive: stack on narrow viewports */
+@media (max-width: 580px) {
+  .heroes-detail-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .heroes-detail-portrait {
+    width: clamp(120px, 40vw, 160px);
+  }
+}
+
 /* ===== Bottom Navigation ===== */
 #site-nav {
   position: fixed;
