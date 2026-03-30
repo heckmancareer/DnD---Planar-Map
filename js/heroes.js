@@ -16,7 +16,7 @@ const Heroes = (() => {
   let container;
   let grid;
   let detail;
-  let detailPortrait, detailName, detailMeta, detailCampaignTag, detailDescription;
+  let detailPortrait, detailArtistCredit, detailName, detailMeta, detailCampaignTag, detailCoreQuote, detailDescription;
 
   /* ---------- Helper: look up campaign by id ---------- */
   function getCampaign(id) {
@@ -81,6 +81,17 @@ const Heroes = (() => {
     detailPortrait.src = hero.portrait || PLACEHOLDER;
     detailPortrait.alt = hero.name;
 
+    if (hero.portraitArtist) {
+      detailArtistCredit.hidden = false;
+      if (hero.portraitArtistUrl) {
+        detailArtistCredit.innerHTML = `Art by <a href="${hero.portraitArtistUrl}" target="_blank" rel="noopener noreferrer">${hero.portraitArtist}</a>`;
+      } else {
+        detailArtistCredit.textContent = `Art by ${hero.portraitArtist}`;
+      }
+    } else {
+      detailArtistCredit.hidden = true;
+    }
+
     detailName.textContent = hero.name;
     detailMeta.textContent = `${hero.species}  ·  ${hero.class}  ·  Level ${hero.level}`;
 
@@ -90,6 +101,13 @@ const Heroes = (() => {
       detailCampaignTag.hidden = false;
     } else {
       detailCampaignTag.hidden = true;
+    }
+
+    if (hero.coreQuote) {
+      detailCoreQuote.textContent = `"${hero.coreQuote}"`;
+      detailCoreQuote.hidden = false;
+    } else {
+      detailCoreQuote.hidden = true;
     }
 
     detailDescription.innerHTML = '';
@@ -128,12 +146,15 @@ const Heroes = (() => {
     const inner = document.createElement('div');
     inner.className = 'heroes-detail-inner';
 
-    // Left: portrait
+    // Left: portrait + artist credit
     const portraitDiv = document.createElement('div');
     portraitDiv.className = 'heroes-detail-portrait';
     detailPortrait = document.createElement('img');
     detailPortrait.draggable = false;
+    detailArtistCredit = document.createElement('p');
+    detailArtistCredit.className = 'heroes-detail-artist';
     portraitDiv.appendChild(detailPortrait);
+    portraitDiv.appendChild(detailArtistCredit);
 
     // Right: info + description
     const content = document.createElement('div');
@@ -151,6 +172,9 @@ const Heroes = (() => {
     const divider = document.createElement('hr');
     divider.className = 'campaigns-detail-divider'; // reuse campaign divider styles
 
+    detailCoreQuote = document.createElement('blockquote');
+    detailCoreQuote.className = 'heroes-detail-quote';
+
     detailDescription = document.createElement('div');
     detailDescription.className = 'campaigns-detail-description'; // reuse campaign description styles
 
@@ -158,6 +182,7 @@ const Heroes = (() => {
     content.appendChild(detailMeta);
     content.appendChild(detailCampaignTag);
     content.appendChild(divider);
+    content.appendChild(detailCoreQuote);
     content.appendChild(detailDescription);
 
     inner.appendChild(portraitDiv);

@@ -10,8 +10,11 @@
  *   level      — current level (number)
  *   species    — character species/race
  *   campaign   — campaign id this hero belongs to (must match a CAMPAIGNS id)
- *   portrait   — path to portrait image, or null to use the placeholder
- *   description — array of paragraph strings shown in the detail view
+ *   portrait          — path to portrait image, or null to use the placeholder
+ *   portraitArtist    — (optional) artist name shown beneath the portrait
+ *   portraitArtistUrl — (optional) URL to hyperlink the artist credit
+ *   coreQuote         — (optional) a defining quote shown above the backstory
+ *   description       — array of paragraph strings shown in the detail view
  */
 
 const HEROES = [
@@ -57,10 +60,16 @@ const HEROES = [
     class: 'Sorcerer - Draconic',
     level: 7,
     species: 'Elf - Drow',
+    portrait: 'assets/portraits/vornakir.jpg',
     campaign: 'spark-saga',
-    portrait: null,
+    portraitArtist: '@d4ybreaker',
+    portraitArtistUrl: 'https://x.com/d4ybreaker?s=21&t=Qv4C_10OSA0kNBI6DUim8w',
+    coreQuote: 'If I’m the Sin of Pride, then that must mean you’re all the Sin of Envy.',
     description: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      'Vornakir Vanori, a prodigy of many titles and even more talents, is a Drow Sorcerer born to the Vanori Clan of the Obsidian Barricade - an ancient clan renowned for their founding Ancestor being one of the four Elders who created the city of Ebonspire.',
+      'Though his bloodline is one of great prestige, perhaps what makes him even more prominent among his kind is the extremely rare blood mutation that manifests as golden draconic scales adorning his body. The legacy of Draconic Blood that’s blessed his and many other Clans of Ebonspire for centuries may result in the Birth of a ‘Scaleborn’ - those destined for greatness and Sovereignty in his culture. The duality of that prestige comes with the haunting knowledge that only one may live and the others must die in order to follow tradition.',
+      'One of Three Scaleborn this generation, Vornakir enrolled in Spark Oath to hone his abilities beyond comparison so that he may stand to wear the burden of the heavy crown destined to one of the three Scaleborn but instead he found himself at a crossroad he never anticipated…',
+      'To eliminate his completion to further prestige the Vanori Bloodline as a servant of tradition and a puppet of the Elders who came before or to break the centuries of chains binding the wings of those destined to fly free as a harbinger of hope for the Scaleborn who come after.',
     ],
   },
   {

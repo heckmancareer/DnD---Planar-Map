@@ -732,6 +732,40 @@ html, body {
   margin-bottom: 0.4rem;
 }
 
+.heroes-detail-artist {
+  margin-top: 0.5rem;
+  font-size: clamp(0.58rem, 0.85vw, 0.7rem);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(160, 150, 200, 0.5);
+  text-align: center;
+}
+
+.heroes-detail-artist a {
+  color: color-mix(in srgb, var(--glow-color) 70%, rgba(200, 190, 230, 0.8));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.heroes-detail-artist a:hover {
+  color: color-mix(in srgb, var(--glow-color) 90%, white);
+}
+
+.heroes-detail-quote {
+  margin: 0 0 1.2rem;
+  padding: 0.75rem 1.1rem;
+  border-left: 2px solid color-mix(in srgb, var(--glow-color) 55%, transparent);
+  background: color-mix(in srgb, var(--glow-color) 7%, transparent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--glow-color) 80%, rgba(220, 210, 255, 0.9));
+  letter-spacing: 0.02em;
+}
+
 /* Responsive: stack on narrow viewports */
 @media (max-width: 580px) {
   .heroes-detail-inner {
