@@ -13,7 +13,7 @@ const Campaigns = (() => {
   let container;
   let grid;
   let detail;
-  let detailImg, detailTitle, detailSubtitle, detailDescription;
+  let detailImg, detailTitle, detailSubtitle, detailDescription, detailLink;
 
   /* ---------- Build DOM for each grid card ---------- */
   function createCard(campaign) {
@@ -65,6 +65,13 @@ const Campaigns = (() => {
       const p = document.createElement('p');
       p.textContent = para;
       detailDescription.appendChild(p);
+    }
+
+    if (campaign.startPlayingUrl) {
+      detailLink.href = campaign.startPlayingUrl;
+      detailLink.style.display = '';
+    } else {
+      detailLink.style.display = 'none';
     }
 
     grid.classList.add('campaigns-grid--hidden');
@@ -122,10 +129,17 @@ const Campaigns = (() => {
     detailDescription = document.createElement('div');
     detailDescription.className = 'campaigns-detail-description';
 
+    detailLink = document.createElement('a');
+    detailLink.className = 'campaigns-detail-sp-link';
+    detailLink.target = '_blank';
+    detailLink.rel = 'noopener noreferrer';
+    detailLink.textContent = 'Join on StartPlaying';
+
     content.appendChild(detailTitle);
     content.appendChild(detailSubtitle);
     content.appendChild(divider);
     content.appendChild(detailDescription);
+    content.appendChild(detailLink);
 
     inner.appendChild(emblemDiv);
     inner.appendChild(content);
