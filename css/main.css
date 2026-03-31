@@ -362,6 +362,8 @@ html, body {
   gap: 1.5rem;
   width: 100%;
   max-width: 860px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .campaigns-back {
