@@ -342,9 +342,9 @@ html, body {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 2rem 2rem 5rem; /* bottom pad clears nav bar */
+  padding: 2rem 2rem 7rem; /* bottom pad clears nav bar */
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
@@ -641,9 +641,9 @@ html, body {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 2rem 2rem 5rem;
+  padding: 2rem 2rem 7rem;
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
