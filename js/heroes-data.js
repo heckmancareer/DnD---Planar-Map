@@ -21,7 +21,7 @@ const HEROES = [
   {
     id: 'caspian-veilbright',
     name: 'Caspian Veilbright',
-    class: 'Fighter - Eldricht Knight',
+    class: 'Fighter - Eldritch Knight',
     level: 7,
     species: 'Human',
     campaign: 'spark-saga',
@@ -84,7 +84,7 @@ const HEROES = [
     name: `Sol'Régem Sunniva-Aelia`,
     class: 'Bard - College of Glamour',
     level: 7,
-    species: 'Aasamir',
+    species: 'Aasimar',
     campaign: 'spark-saga',
     portrait: null,
     coreQuote: 'I love the confidence! Now let’s find you the skills to match!',
