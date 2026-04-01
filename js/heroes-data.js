@@ -42,6 +42,9 @@ const HEROES = [
     species: 'Tiefling',
     campaign: 'spark-saga',
     portrait: null,
+    portrait: 'assets/portraits/auri.jpg',
+    portraitArtist: '@Bewitchedfoxx',
+    portraitArtistUrl: 'https://ko-fi.com/U7U41AXCZ5/commissions',
     description: [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     ],
@@ -84,6 +87,7 @@ const HEROES = [
     species: 'Aasamir',
     campaign: 'spark-saga',
     portrait: null,
+    coreQuote: 'I love the confidence! Now let’s find you the skills to match!',
     description: [
       'With a radiant personality wrapped in starlight and silk, Sol is equal parts illusionist, designer, empath, and unapologetic diva. As the creative heart of the group, every spell he casts feels curated and elegant. On the battlefield, Sol turns chaos into a show, bending perception, charming minds, and leaving enemies unsure whether they’re fighting him or each other.',
       'Behind his dazzling spectacle is the emotional center of the team. Sol is the one people go to when they need a shoulder to cry on, as he somehow always knows exactly what to say. His empathy lets him feel the emotions people try to hide, and he meets them halfway with warmth, honesty, and just the right amount of teasing.',
@@ -127,6 +131,9 @@ const HEROES = [
     species: 'Orc',
     campaign: 'celstate-saga',
     portrait: null,
+    portrait: 'assets/portraits/callie.jpg',
+    portraitArtist: '@Bewitchedfoxx',
+    portraitArtistUrl: 'https://ko-fi.com/U7U41AXCZ5/commissions',
     description: [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     ],
@@ -139,6 +146,7 @@ const HEROES = [
     species: 'Elf - Wood',
     campaign: 'celstate-saga',
     portrait: null,
+    coreQuote: 'Not every fall means failure; sometimes it’s how we learn to fly.',
     description: [
       'Raised among the soaring cliffs and skybridges of the Ouranian Domain, a kingdom shaped by the ever-shifting breath of the sky, Aurelio was born into House Falconcrest. This royal line values freedom, empathy, and harmony with the natural world. Aurelio carries himself with a quiet steadiness that feels as constant as the wind. He has less of a commanding presence than his elder sister Sersphina or his twin brother Alwyn, but he’s grounded, someone who listens before he acts and understands before he speaks.',
       'In the field, Aurelio is precision personified. As a former Skyguard ranger, a branch of the Domain’s military, he moves with fluid efficiency, reading the terrain and enemy motion as easily as some read a map. Alongside his partner, peregrine falcon Pollux, and his blink dog Castor, he fights like a force of nature, outmaneuvering his opponents and striking them from angles they would never anticipate before disappearing just as quickly.',
