@@ -26,8 +26,12 @@ const HEROES = [
     species: 'Human',
     campaign: 'spark-saga',
     portrait: null,
+    coreQuote: 'Getting stronger isn’t about winning, it’s about picking yourself up out of the dirt and continuing to fight.',
     description: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      'Not limited by the constraints of what others tell him is possible Caspian Veilbright strives to not walk others paths but carve his own from whatever lay in front of him. The eldritch knight has mastered both martial might and magical prowess to contend with enemies and rivals alike. ',
+      'Caspian and his twin Cordelia have lived under the shadow of their parents. Saintillian diplomats who raised them while on mission in Celstate Rune. Chafing under the restrictions of his parents and seeing the Celian belief in ruling for the benefit of the ruled, Caspian soon became disillusioned with his homeland. A massive falling out sparked by war between the Saintillac and Celstate led to him being sent to Spark Oath with Cordelia to “keep him out of trouble”.',
+      'Since then he’s become the stalwart defender of his friends, wading headfirst into conflict putting his body on the line for them. He possesses the will to keep fighting long after he is exhausted and also to speak to his friends and share what he believes to be right even when they may disagree.',
+      'Faced with dark revelations about his past as a Saintillan experiment to fuse a Terror Elemental to a human. Everything he once believed about himself has now come into question. Caspian now fights to overcome challenges not only from his foes but from within himself as well.',
     ],
   },
   {
@@ -47,7 +51,7 @@ const HEROES = [
     name: 'Redd Ravenshire',
     class: 'Druid - Circle of the Moon',
     level: 7,
-    species: 'Tiefling',
+    species: 'Yuan-Ti',
     campaign: 'spark-saga',
     portrait: null,
     description: [
@@ -107,8 +111,12 @@ const HEROES = [
     species: 'Tiefling',
     campaign: 'celstate-saga',
     portrait: null,
+    coreQuote: 'Destiny? The gods? Whatever you wanna call it, I don’t need ‘em. They’ve never done a thing for me and yet look at me now!',
     description: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      'Nothing is guaranteed in life, if you want something you need to be strong enough to take it. Words that the young Talys Crowe took to heart and has never forgotten. A common street urchin with an uncommon talent for learning magic he was quickly pulled into the murky waters of the Celian underworld and his talent for magic nurtured by the leader of his gang.',
+      'Happy to steal from the rich and give to himself Talys loved his life as a thief until, as most thieves do, he got caught. Offered a chance not just to keep himself a free man but to seize power for himself he was offered enlistment in the Cobalt Guard. Talys never hesitated.',
+      'Since then he’s continued to seize each opportunity as it comes, gathering magic, power, and charisma to his side. Now he stands a rider among the Winged Concord. His sharp tongue is first among his weapons and his magic and wyvern, the unpredictable Biter, the most deadly.',
+      'Not always beloved by his allies either. His personality is cocky and difficult to work with at times. Despite this Talys still fights for his country. Let it never be said there is no honor in this thief at least.',
     ],
   },
   {
