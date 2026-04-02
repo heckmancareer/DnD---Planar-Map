@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Realms.init();
   Campaigns.init();
   Heroes.init();
+  Journals.init();
 
   /* ---- Title dismiss ---- */
   const overlay = document.getElementById('overlay');

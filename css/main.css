@@ -1085,3 +1085,358 @@ html, body {
   0%, 100% { transform: scale(1);   opacity: 1; }
   50%       { transform: scale(1.2); opacity: 0.8; }
 }
+
+
+/* ==========================================================================
+   Journals of Echo
+   ========================================================================== */
+
+.journals-container {
+  position: absolute;
+  inset: 0;
+}
+
+/* ---- Grid view ---- */
+
+.journals-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding: 2.5rem 2.5rem 5rem;   /* bottom clears the nav bar */
+  overflow-y: auto;
+  align-content: start;
+  transition: opacity 0.4s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 100, 180, 0.3) transparent;
+}
+
+.journals-grid--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Cards */
+
+.journal-card {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 0.45rem;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(180deg,
+    rgba(12, 10, 28, 0.75) 0%,
+    rgba(8,  6, 22, 0.88) 100%);
+  border: 1px solid rgba(140, 110, 200, 0.15);
+  border-radius: 0.85rem;
+  backdrop-filter: blur(16px);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+  transition:
+    transform     0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color  0.32s ease,
+    box-shadow    0.32s ease;
+}
+
+.journal-card:hover,
+.journal-card:focus-visible {
+  transform: translateY(-5px) scale(1.015);
+  border-color: rgba(140, 110, 200, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 24px color-mix(in srgb, var(--glow-color) 20%, transparent);
+}
+
+.journal-card-number {
+  font-size: clamp(0.58rem, 0.88vw, 0.7rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--glow-color) 75%, rgba(200, 190, 255, 0.8));
+}
+
+.journal-card-title {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e8e0ff;
+  line-height: 1.25;
+}
+
+.journal-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.1rem;
+}
+
+.journal-card-date,
+.journal-card-location {
+  font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba(160, 150, 200, 0.55);
+}
+
+.journal-card-snippet {
+  margin-top: 0.35rem;
+  font-size: clamp(0.7rem, 0.95vw, 0.8rem);
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(180, 170, 210, 0.4);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---- Detail view ---- */
+
+.journals-detail {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem 7rem;   /* bottom clears the nav bar */
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 100, 180, 0.3) transparent;
+}
+
+.journals-detail--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.journals-back-btn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.75rem 0 1.25rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(140, 110, 200, 0.2);
+  border-radius: 0.5rem;
+  color: rgba(180, 170, 220, 0.7);
+  font-family: inherit;
+  font-size: clamp(0.68rem, 0.95vw, 0.78rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.journals-back-btn:hover,
+.journals-back-btn:focus-visible {
+  color: rgba(210, 200, 255, 0.9);
+  border-color: rgba(140, 110, 200, 0.45);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.journals-back-arrow {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.journals-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 760px;
+  padding-bottom: 1rem;
+}
+
+/* Header card */
+
+.journals-detail-header {
+  padding: 2rem 2.5rem;
+  background: linear-gradient(135deg,
+    rgba(12, 10, 28, 0.72) 0%,
+    rgba(8,  6, 22, 0.86) 100%);
+  border: 1px solid rgba(140, 110, 200, 0.15);
+  border-radius: 1rem;
+  backdrop-filter: blur(20px);
+}
+
+.journals-detail-number {
+  font-size: clamp(0.6rem, 0.88vw, 0.7rem);
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--glow-color) 75%, rgba(200, 190, 255, 0.8));
+  margin: 0 0 0.5rem;
+}
+
+.journals-detail-title {
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e8e0ff;
+  margin: 0 0 0.65rem;
+  line-height: 1.2;
+}
+
+.journals-detail-date,
+.journals-detail-location {
+  font-size: clamp(0.7rem, 0.95vw, 0.82rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(180, 170, 210, 0.55);
+  margin: 0.15rem 0 0;
+}
+
+/* Central quote — prominently styled, colored by --glow-color */
+
+.journals-central-quote {
+  margin: 1.25rem 0 0;
+  padding: 0.9rem 1.25rem;
+  border-left: 3px solid color-mix(in srgb, var(--glow-color) 65%, transparent);
+  background: color-mix(in srgb, var(--glow-color) 8%, transparent);
+  border-radius: 0 0.55rem 0.55rem 0;
+}
+
+.journals-central-quote-text {
+  font-size: clamp(0.92rem, 1.3vw, 1.1rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--glow-color) 85%, rgba(220, 210, 255, 0.95));
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.journals-central-quote-speaker {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: clamp(0.6rem, 0.85vw, 0.7rem);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(160, 150, 200, 0.5);
+}
+
+/* Story body card */
+
+.journals-story-body {
+  padding: 2rem 2.5rem 2.5rem;
+  background: linear-gradient(180deg,
+    rgba(10, 8, 24, 0.68) 0%,
+    rgba(8,  6, 22, 0.82) 100%);
+  border: 1px solid rgba(140, 110, 200, 0.12);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+}
+
+/* Markdown typography */
+
+.journals-story-body p {
+  font-size: clamp(0.88rem, 1.12vw, 1.02rem);
+  line-height: 1.9;
+  color: rgba(210, 205, 230, 0.88);
+  margin: 0 0 1.35rem;
+}
+
+.journals-story-body p:last-child {
+  margin-bottom: 0;
+}
+
+.journals-story-body h1,
+.journals-story-body h2,
+.journals-story-body h3 {
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e8e0ff;
+  margin: 1.75rem 0 0.75rem;
+  line-height: 1.25;
+}
+
+.journals-story-body h1 { font-size: clamp(1.05rem, 1.5vw, 1.35rem); }
+.journals-story-body h2 { font-size: clamp(0.92rem, 1.3vw, 1.15rem); }
+.journals-story-body h3 { font-size: clamp(0.82rem, 1.15vw, 1rem);   }
+
+/* Discord-style blockquote */
+
+.journals-story-body blockquote {
+  margin: 1.2rem 0;
+  padding: 0.55rem 1rem;
+  border-left: 3px solid rgba(120, 100, 180, 0.45);
+  background: rgba(80, 60, 140, 0.1);
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+
+.journals-story-body blockquote p {
+  font-style: italic;
+  color: rgba(190, 180, 220, 0.72);
+  margin-bottom: 0;
+  font-size: clamp(0.85rem, 1.08vw, 0.98rem);
+}
+
+.journals-story-body em {
+  color: rgba(220, 210, 250, 0.85);
+  font-style: italic;
+}
+
+.journals-story-body strong {
+  color: #e8e0ff;
+  font-weight: 600;
+}
+
+.journals-story-body hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(120, 100, 180, 0.35),
+    transparent);
+  margin: 2rem 0;
+}
+
+/* Loading and error states */
+
+.journals-loading {
+  padding: 2rem;
+  font-size: clamp(0.7rem, 0.95vw, 0.8rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(160, 150, 200, 0.45);
+  text-align: center;
+  animation: pulseHint 2s ease-in-out infinite;
+}
+
+.journals-error {
+  padding: 2rem;
+  font-size: clamp(0.78rem, 1vw, 0.88rem);
+  color: rgba(220, 100, 80, 0.7);
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 560px) {
+  .journals-detail-header,
+  .journals-story-body {
+    padding: 1.5rem;
+  }
+
+  .journals-detail-wrapper {
+    gap: 1rem;
+  }
+
+  .journals-grid {
+    padding: 1.5rem 1.25rem 5rem;
+  }
+}

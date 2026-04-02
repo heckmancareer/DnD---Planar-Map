@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@14/marked.min.js"></script>
 </head>
 <body>
   <canvas id="starfield"></canvas>
@@ -31,6 +32,10 @@
 
     <section id="section-heroes" class="site-section" data-section="heroes">
       <div id="heroes-container" class="heroes-container"></div>
+    </section>
+
+    <section id="section-journals" class="site-section" data-section="journals">
+      <div id="journals-container" class="journals-container"></div>
     </section>
   </div>
 
@@ -66,10 +71,9 @@
         </button>
       </li>
       <li class="nav-item">
-        <button class="nav-btn nav-btn--disabled" disabled aria-disabled="true">
-          <span class="nav-icon" aria-hidden="true">📖</span>
-          <span class="nav-label">Lore Library</span>
-          <span class="nav-coming-soon">Coming Soon</span>
+        <button class="nav-btn" data-target="journals" aria-current="false">
+          <span class="nav-icon" aria-hidden="true">📜</span>
+          <span class="nav-label">Journals of Echo</span>
         </button>
       </li>
     </ul>
@@ -82,6 +86,8 @@
   <script src="js/campaigns.js"></script>
   <script src="js/heroes-data.js"></script>
   <script src="js/heroes.js"></script>
+  <script src="js/journals-data.js"></script>
+  <script src="js/journals.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/main.js"></script>
 </body>
