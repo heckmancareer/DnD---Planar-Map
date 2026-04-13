@@ -18,6 +18,18 @@ const CAMPAIGNS = [
     ],
   },
   {
+    id: 'librarians',
+    name: 'The Librarians',
+    subtitle: 'Its time to collect what\'s overdue',
+    icon: 'assets/icons/librarians.svg',
+    glowColor: '#a8b8cc',
+    description: [
+      'Without memory or past, you exist as little more than a mask beneath an exquisitely tailored formal vest. Presentable, purposeful, and perfectly suited to the management of books.',
+      'Among the first of your kind, you were conjured into this enigmatic place to serve Nobody, the sovereign of this realm. They have developed a new appetite for texts, for relics, for artifacts deemed worthy of educational purpose here, within the Library\'s walls.',
+      'And as any Librarian knows: it is their solemn duty to collect what is overdue.',
+    ],
+  },
+  {
     id: 'celstate-saga',
     name: 'The Celstate Saga',
     subtitle: 'Dragon-riders fighting a war to defend their country',
